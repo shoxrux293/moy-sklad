@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify, send_from_directory
+from flask_cors import CORS
 from datetime import date
 import sqlite3
 import os
@@ -8,6 +9,7 @@ import hashlib
 from database import get_conn, hash_password, init_db
 
 app = Flask(__name__, static_folder=None)
+CORS(app)
 SECRET = "omborxona_secret_2024"
 FRONTEND_DIR = os.path.join(os.path.dirname(__file__), "..", "frontend")
 
